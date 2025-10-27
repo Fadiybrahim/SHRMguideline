@@ -39,7 +39,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, isLoading, err
     return (
         <div className="flex flex-col h-full bg-white dark:bg-gray-900">
             <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                {messages.length === 0 && !error ? (
+                {messages.length === 0 && !error && !isLoading ? (
                      <div className="text-center mt-8">
                         <div className="inline-block p-4 bg-blue-100 dark:bg-blue-900 rounded-full">
                             <Bot size={40} className="text-blue-600 dark:text-blue-300" />
@@ -65,6 +65,9 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, isLoading, err
                     ))
                 )}
                 {isLoading && messages.length > 0 && messages[messages.length-1].role === 'user' && (
+                     <ChatMessage role="model" content="Thinking..." isLoading={true} />
+                )}
+                 {isLoading && messages.length === 0 && (
                      <ChatMessage role="model" content="Thinking..." isLoading={true} />
                 )}
                 <div ref={messagesEndRef} />
