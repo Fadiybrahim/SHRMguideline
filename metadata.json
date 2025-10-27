@@ -1,0 +1,5 @@
+{
+  "name": "Strategic Human Resource Management Guideline",
+  "description": "An intelligent chatbot that answers questions based on a user-uploaded PDF document, powered by Gemini. Users can upload a PDF, customize the system prompt, and engage in a contextual conversation.",
+  "requestFramePermissions": []
+}
